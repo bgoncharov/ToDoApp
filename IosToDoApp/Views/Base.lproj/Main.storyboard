@@ -145,27 +145,97 @@
                         <outlet property="doneTasksContainerView" destination="EOB-6B-rao" id="4uR-DU-QWv"/>
                         <outlet property="menuSegmentedControl" destination="yji-yf-5PT" id="aQk-Mp-xj4"/>
                         <outlet property="outgoingTasksContainerView" destination="f15-wi-YzS" id="aUa-Kf-C2J"/>
-                        <segue destination="I40-7u-6o9" kind="presentation" identifier="showAddNewTask" id="FOc-B1-uhp"/>
+                        <segue destination="I40-7u-6o9" kind="presentation" identifier="showNewTask" id="FOc-B1-uhp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="985.50724637681162" y="79.017857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--New Task View Controller-->
         <scene sceneID="ljC-T0-esQ">
             <objects>
-                <viewController id="I40-7u-6o9" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="I40-7u-6o9" customClass="NewTaskViewController" customModule="IosToDoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CKM-A2-o0W">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuw-eq-Zqp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58U-Ux-JAq" userLabel="Container View">
+                                        <rect key="frame" x="0.0" y="600" width="414" height="296"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6KK-fD-ibH">
+                                                <rect key="frame" x="16" y="8" width="382" height="280"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter new task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uZP-NN-Dhb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="hiQ-wB-WR3"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCk-UI-vES">
+                                                        <rect key="frame" x="0.0" y="40" width="382" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LAT-rH-zxv">
+                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="bfW-rz-uqJ"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                                                <state key="normal" title="Save"/>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Fq-Lj-5IL">
+                                                        <rect key="frame" x="0.0" y="80" width="382" height="200"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="200" id="6wV-hQ-8Wk"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="6KK-fD-ibH" firstAttribute="leading" secondItem="58U-Ux-JAq" secondAttribute="leading" constant="16" id="OmQ-Kb-aLS"/>
+                                            <constraint firstItem="6KK-fD-ibH" firstAttribute="top" secondItem="58U-Ux-JAq" secondAttribute="top" constant="8" id="eFx-ZJ-Bec"/>
+                                            <constraint firstAttribute="bottom" secondItem="6KK-fD-ibH" secondAttribute="bottom" constant="8" id="iUI-Yq-Yxe"/>
+                                            <constraint firstAttribute="trailing" secondItem="6KK-fD-ibH" secondAttribute="trailing" constant="16" id="k8w-GK-sD6"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="58U-Ux-JAq" firstAttribute="leading" secondItem="fuw-eq-Zqp" secondAttribute="leading" id="Xmr-Iz-SL6"/>
+                                    <constraint firstAttribute="bottom" secondItem="58U-Ux-JAq" secondAttribute="bottom" id="auq-yk-49q"/>
+                                    <constraint firstAttribute="trailing" secondItem="58U-Ux-JAq" secondAttribute="trailing" id="uED-mX-UNW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="BBf-fC-uIX"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="fuw-eq-Zqp" secondAttribute="bottom" id="G7P-Mg-PGE"/>
+                            <constraint firstItem="fuw-eq-Zqp" firstAttribute="top" secondItem="CKM-A2-o0W" secondAttribute="top" id="OtV-sF-EcR"/>
+                            <constraint firstItem="fuw-eq-Zqp" firstAttribute="trailing" secondItem="BBf-fC-uIX" secondAttribute="trailing" id="SCD-Sh-Iro"/>
+                            <constraint firstItem="fuw-eq-Zqp" firstAttribute="leading" secondItem="BBf-fC-uIX" secondAttribute="leading" id="yPs-cP-TQd"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="fuw-eq-Zqp" id="CX8-1N-AIk"/>
+                        <outlet property="containerView" destination="58U-Ux-JAq" id="6US-Px-Pl7"/>
+                        <outlet property="containerViewBottomConsraint" destination="auq-yk-49q" id="tFq-Nr-o8w"/>
+                        <outlet property="taskTextField" destination="uZP-NN-Dhb" id="SQ0-IS-ON5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UuS-vP-1G0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1962" y="79"/>
+            <point key="canvasLocation" x="1960.8695652173915" y="78.348214285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cxq-S8-7TX">

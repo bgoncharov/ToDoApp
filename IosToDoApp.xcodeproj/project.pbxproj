@@ -18,6 +18,7 @@
 		A168A16D2558F46E0036A72E /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A16C2558F46E0036A72E /* MenuSection.swift */; };
 		A168A1742558FA5D0036A72E /* DoneTaskTableViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A1732558FA5D0036A72E /* DoneTaskTableViewCotroller.swift */; };
 		A168A1772558FA930036A72E /* OngoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A1762558FA930036A72E /* OngoingViewController.swift */; };
+		A1A57EA02559C4D3002D1F63 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A57E9F2559C4D3002D1F63 /* NewTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		A168A16C2558F46E0036A72E /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
 		A168A1732558FA5D0036A72E /* DoneTaskTableViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskTableViewCotroller.swift; sourceTree = "<group>"; };
 		A168A1762558FA930036A72E /* OngoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingViewController.swift; sourceTree = "<group>"; };
+		A1A57E9F2559C4D3002D1F63 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		A986D3E17403F2255FFB5924 /* Pods_IosToDoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IosToDoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 				A168A1402558EFFD0036A72E /* TasksViewController.swift */,
 				A168A1732558FA5D0036A72E /* DoneTaskTableViewCotroller.swift */,
 				A168A1762558FA930036A72E /* OngoingViewController.swift */,
+				A1A57E9F2559C4D3002D1F63 /* NewTaskViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A168A1772558FA930036A72E /* OngoingViewController.swift in Sources */,
+				A1A57EA02559C4D3002D1F63 /* NewTaskViewController.swift in Sources */,
 				A168A1412558EFFD0036A72E /* TasksViewController.swift in Sources */,
 				A168A13D2558EFFD0036A72E /* AppDelegate.swift in Sources */,
 				A168A1742558FA5D0036A72E /* DoneTaskTableViewCotroller.swift in Sources */,
