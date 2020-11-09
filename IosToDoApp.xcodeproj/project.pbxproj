@@ -16,6 +16,8 @@
 		A168A1492558EFFD0036A72E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A168A1472558EFFD0036A72E /* LaunchScreen.storyboard */; };
 		A168A1522558F0FC0036A72E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A168A1512558F0FC0036A72E /* Podfile */; };
 		A168A16D2558F46E0036A72E /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A16C2558F46E0036A72E /* MenuSection.swift */; };
+		A168A1742558FA5D0036A72E /* DoneTaskTableViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A1732558FA5D0036A72E /* DoneTaskTableViewCotroller.swift */; };
+		A168A1772558FA930036A72E /* OngoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A1762558FA930036A72E /* OngoingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		A168A14A2558EFFE0036A72E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A168A1512558F0FC0036A72E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		A168A16C2558F46E0036A72E /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
+		A168A1732558FA5D0036A72E /* DoneTaskTableViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskTableViewCotroller.swift; sourceTree = "<group>"; };
+		A168A1762558FA930036A72E /* OngoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingViewController.swift; sourceTree = "<group>"; };
 		A986D3E17403F2255FFB5924 /* Pods_IosToDoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IosToDoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,7 +84,7 @@
 				A168A13E2558EFFD0036A72E /* SceneDelegate.swift */,
 				A168A16B2558F4600036A72E /* Models */,
 				A168A1702558F4BB0036A72E /* Controllers */,
-				A168A1422558EFFD0036A72E /* Main.storyboard */,
+				A168A1792558FE340036A72E /* Views */,
 				A168A1452558EFFD0036A72E /* Assets.xcassets */,
 				A168A1472558EFFD0036A72E /* LaunchScreen.storyboard */,
 				A168A14A2558EFFE0036A72E /* Info.plist */,
@@ -100,8 +104,18 @@
 			isa = PBXGroup;
 			children = (
 				A168A1402558EFFD0036A72E /* TasksViewController.swift */,
+				A168A1732558FA5D0036A72E /* DoneTaskTableViewCotroller.swift */,
+				A168A1762558FA930036A72E /* OngoingViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A168A1792558FE340036A72E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A168A1422558EFFD0036A72E /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FC87716B91DCF602A6E9BC07 /* Pods */ = {
@@ -228,8 +242,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A168A1772558FA930036A72E /* OngoingViewController.swift in Sources */,
 				A168A1412558EFFD0036A72E /* TasksViewController.swift in Sources */,
 				A168A13D2558EFFD0036A72E /* AppDelegate.swift in Sources */,
+				A168A1742558FA5D0036A72E /* DoneTaskTableViewCotroller.swift in Sources */,
 				A168A16D2558F46E0036A72E /* MenuSection.swift in Sources */,
 				A168A13F2558EFFD0036A72E /* SceneDelegate.swift in Sources */,
 			);
