@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class NewTaskViewController: UIViewController {
     
@@ -13,11 +14,16 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var containerViewBottomConsraint: NSLayoutConstraint!
+    @IBOutlet weak var saveButton: UIButton! 
+    
+    private var subscribers = Set<AnyCancellable>()
+    @Published private var taskString: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
+        observeForm()
         setupGesture()
         observeKeyboard()
     }
@@ -25,6 +31,18 @@ class NewTaskViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         taskTextField.becomeFirstResponder()
+    }
+    
+    private func observeForm() {
+        NotificationCenter.default.publisher(for: UITextField.textDidChangeNotification).map { (notification) -> String? in
+            return (notification.object as? UITextField)?.text
+        }.sink { [unowned self] (text) in
+            self.taskString = text
+        }.store(in: &subscribers)
+        
+        $taskString.sink { (text) in
+            self.saveButton.isEnabled = text?.isEmpty == false
+        }.store(in: &subscribers)
     }
     
     private func setupViews() {
@@ -45,7 +63,11 @@ class NewTaskViewController: UIViewController {
     
     @objc func keyboardWillShow(_ notification: Notification) {
         let keyboardHeight = getKeyboardHeight(notification: notification)
-        containerViewBottomConsraint.constant = keyboardHeight - (200 + 8)
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: { [unowned self] in
+            self.containerViewBottomConsraint.constant = keyboardHeight - (200 + 8)
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {

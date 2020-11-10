@@ -230,6 +230,7 @@
                         <outlet property="backgroundView" destination="fuw-eq-Zqp" id="CX8-1N-AIk"/>
                         <outlet property="containerView" destination="58U-Ux-JAq" id="6US-Px-Pl7"/>
                         <outlet property="containerViewBottomConsraint" destination="auq-yk-49q" id="tFq-Nr-o8w"/>
+                        <outlet property="saveButton" destination="LAT-rH-zxv" id="GTR-uW-Gzg"/>
                         <outlet property="taskTextField" destination="uZP-NN-Dhb" id="SQ0-IS-ON5"/>
                     </connections>
                 </viewController>
