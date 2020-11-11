@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2AB02141C8089E8D6B7BAF8D /* Pods_IosToDoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A986D3E17403F2255FFB5924 /* Pods_IosToDoApp.framework */; };
+		A11A1A7F255B99150022FE6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A11A1A7E255B99150022FE6B /* GoogleService-Info.plist */; };
+		A11A1A82255B9C630022FE6B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11A1A81255B9C630022FE6B /* Task.swift */; };
+		A11A1A86255B9D2F0022FE6B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11A1A85255B9D2F0022FE6B /* DatabaseManager.swift */; };
 		A168A13D2558EFFD0036A72E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A13C2558EFFD0036A72E /* AppDelegate.swift */; };
 		A168A13F2558EFFD0036A72E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A13E2558EFFD0036A72E /* SceneDelegate.swift */; };
 		A168A1412558EFFD0036A72E /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A1402558EFFD0036A72E /* TasksViewController.swift */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		58A50505535F5EB6C448DE39 /* Pods-IosToDoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IosToDoApp.debug.xcconfig"; path = "Target Support Files/Pods-IosToDoApp/Pods-IosToDoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7C3243B7220AC7E986864D02 /* Pods-IosToDoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IosToDoApp.release.xcconfig"; path = "Target Support Files/Pods-IosToDoApp/Pods-IosToDoApp.release.xcconfig"; sourceTree = "<group>"; };
+		A11A1A7E255B99150022FE6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A11A1A81255B9C630022FE6B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		A11A1A85255B9D2F0022FE6B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		A168A1392558EFFD0036A72E /* IosToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IosToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A168A13C2558EFFD0036A72E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A168A13E2558EFFD0036A72E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +66,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A11A1A84255B9D0C0022FE6B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A11A1A85255B9D2F0022FE6B /* DatabaseManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		A168A1302558EFFD0036A72E = {
 			isa = PBXGroup;
 			children = (
@@ -84,12 +98,14 @@
 			children = (
 				A168A13C2558EFFD0036A72E /* AppDelegate.swift */,
 				A168A13E2558EFFD0036A72E /* SceneDelegate.swift */,
+				A11A1A84255B9D0C0022FE6B /* Helpers */,
 				A168A16B2558F4600036A72E /* Models */,
 				A168A1702558F4BB0036A72E /* Controllers */,
 				A168A1792558FE340036A72E /* Views */,
 				A168A1452558EFFD0036A72E /* Assets.xcassets */,
 				A168A1472558EFFD0036A72E /* LaunchScreen.storyboard */,
 				A168A14A2558EFFE0036A72E /* Info.plist */,
+				A11A1A7E255B99150022FE6B /* GoogleService-Info.plist */,
 			);
 			path = IosToDoApp;
 			sourceTree = "<group>";
@@ -98,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				A168A16C2558F46E0036A72E /* MenuSection.swift */,
+				A11A1A81255B9C630022FE6B /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +208,7 @@
 			files = (
 				A168A1492558EFFD0036A72E /* LaunchScreen.storyboard in Resources */,
 				A168A1462558EFFD0036A72E /* Assets.xcassets in Resources */,
+				A11A1A7F255B99150022FE6B /* GoogleService-Info.plist in Resources */,
 				A168A1522558F0FC0036A72E /* Podfile in Resources */,
 				A168A1442558EFFD0036A72E /* Main.storyboard in Resources */,
 			);
@@ -245,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11A1A82255B9C630022FE6B /* Task.swift in Sources */,
 				A168A1772558FA930036A72E /* OngoingViewController.swift in Sources */,
 				A1A57EA02559C4D3002D1F63 /* NewTaskViewController.swift in Sources */,
 				A168A1412558EFFD0036A72E /* TasksViewController.swift in Sources */,
@@ -252,6 +271,7 @@
 				A168A1742558FA5D0036A72E /* DoneTaskTableViewCotroller.swift in Sources */,
 				A168A16D2558F46E0036A72E /* MenuSection.swift in Sources */,
 				A168A13F2558EFFD0036A72E /* SceneDelegate.swift in Sources */,
+				A11A1A86255B9D2F0022FE6B /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
