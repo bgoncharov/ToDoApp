@@ -85,4 +85,11 @@ class NewTaskViewController: UIViewController {
     @objc private func dismisViewController() {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction private func calendarButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction private func saveButtonTapped(_ sender: Any) {
+    }
+    
 }
