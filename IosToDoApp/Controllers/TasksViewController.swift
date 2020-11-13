@@ -13,6 +13,8 @@ class TasksViewController: UIViewController {
     @IBOutlet weak var doneTasksContainerView: UIView!
     @IBOutlet weak var outgoingTasksContainerView: UIView!
     
+    private let databaseManager = DatabaseManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,8 +52,31 @@ class TasksViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showNewTask",
+           let destination = segue.destination as? NewTaskViewController {
+            destination.delegate = self
+        }
+    }
+    
     @IBAction func addNewTaskTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "showNewTask", sender: nil)
     }
 }
 
+extension TasksViewController: TaskVCDelegate {
+    func didAddTask(_ task: Task) {
+        
+        presentedViewController?.dismiss(animated: true, completion: { [unowned self] in
+            self.databaseManager.addTask(task) {  (result) in
+                switch result {
+                
+                case .success():
+                    print("good")
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        })
+    }
+}

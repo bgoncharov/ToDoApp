@@ -10,5 +10,5 @@ import FirebaseFirestoreSwift
 struct Task: Identifiable, Codable {
     @DocumentID var id: String?
     @ServerTimestamp var createdAt: Date?
-    public let title: String?
+    let title: String
 }

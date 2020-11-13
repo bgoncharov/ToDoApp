@@ -19,7 +19,7 @@ class NewTaskViewController: UIViewController {
     private var subscribers = Set<AnyCancellable>()
     @Published private var taskString: String!
     
-    private let databaseManager = DatabaseManager()
+    weak var delegate: TaskVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,15 +96,7 @@ class NewTaskViewController: UIViewController {
         guard let taskString = self.taskString else { return }
         let task = Task(title: taskString)
         
-        databaseManager.addTask(task) { (result) in
-            switch result {
-            
-            case .success():
-                print("good")
-            case .failure(let error):
-                print(error)
-            }
-        }
+        delegate?.didAddTask(task)
     }
     
 }
