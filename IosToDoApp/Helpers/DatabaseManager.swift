@@ -55,4 +55,9 @@ class DatabaseManager {
             }
         })
     }
+    
+    func updateTaskToDone(id: String, completion: (Result<Void, Error>) -> Void) {
+        
+    }
+    
 }

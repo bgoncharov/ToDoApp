@@ -34,6 +34,19 @@ class OngoingViewController: UITableViewController {
             }
         }
     }
+    
+    private func handleActionButton(for task: Task) {
+        guard let id = task.id else { return }
+        databasaManager.updateTaskToDone(id: id) { (result) in
+            switch result {
+            
+            case .success():
+                print("successfulle")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 extension OngoingViewController {
@@ -47,7 +60,10 @@ extension OngoingViewController {
         
         let task = tasks[indexPath.row]
         cell.configure(task: task)
-        
+        cell.actionButtonDidTap = { [weak self] in
+            self?.handleActionButton(for: task)
+        }
         return cell
     }
+
 }
