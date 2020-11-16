@@ -30,34 +30,37 @@ class DatabaseManager {
         }
     }
     
-    func addListener(completion: @escaping (Result<[Task], Error>) -> Void) {
+    func addListener(forDoneTasks isDone: Bool, completion: @escaping (Result<[Task], Error>) -> Void) {
         
-        listener = tasksCollection.addSnapshotListener({ (snapshot, error) in
+        listener = tasksCollection
+            .whereField("isDone", isEqualTo: isDone)
+            .order(by: "createdAt", descending: true)
+            .addSnapshotListener({ (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else {
-                
-//                var tempTasks = [Task]()
-                
-//                snapshot?.documents.forEach({ (document) in
-//                    if let task = try? document.data(as: Task.self) {
-//                        tempTasks.append(task)
-//                    }
-//                })
-                
-                let tempTasks = try? snapshot?.documents.compactMap({
-                    return try $0.data(as: Task.self)
-                })
-                
-                let tasks = tempTasks ?? []
+                var tasks = [Task]()
+                do {
+                    tasks = try snapshot?.documents.compactMap({
+                        return try $0.data(as: Task.self)
+                    }) ?? []
+                } catch (let error) {
+                    completion(.failure(error))
+                }
                 
                 completion(.success(tasks))
             }
         })
     }
     
-    func updateTaskToDone(id: String, completion: (Result<Void, Error>) -> Void) {
-        
+    func updateTaskToDone(id: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let fields: [String: Any] = ["isDone" : true, "dontAt" : Date()]
+        tasksCollection.document(id).updateData(fields) { (error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
     }
-    
 }

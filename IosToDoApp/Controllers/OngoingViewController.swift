@@ -24,7 +24,7 @@ class OngoingViewController: UITableViewController {
     
     
     private func listenToTasks() {
-        databasaManager.addListener { [weak self] (result) in
+        databasaManager.addListener(forDoneTasks: false) { [weak self] (result) in
             switch result {
             
             case .success(let tasks):

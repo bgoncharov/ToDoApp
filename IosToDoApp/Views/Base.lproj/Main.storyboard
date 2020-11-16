@@ -53,10 +53,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LDI-5g-HdP">
-                                            <rect key="frame" x="20" y="23" width="374" height="84"/>
+                                            <rect key="frame" x="16" y="12" width="382" height="106"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fC-J6-JEL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="84"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="24" height="106"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="0lN-vU-E4X"/>
                                                     </constraints>
@@ -66,16 +66,16 @@
                                                     </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Dox-lM-VEV">
-                                                    <rect key="frame" x="40" y="0.0" width="334" height="84"/>
+                                                    <rect key="frame" x="40" y="0.0" width="342" height="106"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Some random task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvu-tH-eRN">
-                                                            <rect key="frame" x="0.0" y="0.0" width="334" height="64.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="342" height="86.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="due in 3 days time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhW-TZ-tAI">
-                                                            <rect key="frame" x="0.0" y="64.5" width="334" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="86.5" width="342" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -86,10 +86,10 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="LDI-5g-HdP" secondAttribute="trailing" id="Z2F-tg-dEl"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="LDI-5g-HdP" secondAttribute="bottom" constant="12" id="av3-8v-fLs"/>
-                                        <constraint firstItem="LDI-5g-HdP" firstAttribute="top" secondItem="Wsq-iJ-HRN" secondAttribute="topMargin" constant="12" id="h75-8r-QQu"/>
-                                        <constraint firstItem="LDI-5g-HdP" firstAttribute="leading" secondItem="Wsq-iJ-HRN" secondAttribute="leadingMargin" id="vSs-FB-spQ"/>
+                                        <constraint firstItem="LDI-5g-HdP" firstAttribute="leading" secondItem="Wsq-iJ-HRN" secondAttribute="leading" constant="16" id="A3z-Br-njb"/>
+                                        <constraint firstAttribute="trailing" secondItem="LDI-5g-HdP" secondAttribute="trailing" constant="16" id="Kyu-L4-v5O"/>
+                                        <constraint firstAttribute="bottom" secondItem="LDI-5g-HdP" secondAttribute="bottom" constant="12" id="Ps5-8A-WRD"/>
+                                        <constraint firstItem="LDI-5g-HdP" firstAttribute="top" secondItem="Wsq-iJ-HRN" secondAttribute="top" constant="12" id="tIx-yK-D5t"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
