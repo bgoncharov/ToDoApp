@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TasksViewController: UIViewController {
+class TasksViewController: UIViewController, Animatable {
 
     @IBOutlet weak var menuSegmentedControl: UISegmentedControl!
     @IBOutlet weak var doneTasksContainerView: UIView!
@@ -72,9 +72,9 @@ extension TasksViewController: TaskVCDelegate {
                 switch result {
                 
                 case .success():
-                    print("good")
+                    self.showToast(state: .success, text: "New task added")
                 case .failure(let error):
-                    print(error)
+                    self.showToast(state: .success, text: error.localizedDescription)
                 }
             }
         })

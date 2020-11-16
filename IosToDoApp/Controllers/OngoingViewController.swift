@@ -30,7 +30,7 @@ class OngoingViewController: UITableViewController, Animatable {
             case .success(let tasks):
                 self?.tasks = tasks
             case .failure(let error):
-                print(error)
+                self?.showToast(state: .info, text: error.localizedDescription)
             }
         }
     }

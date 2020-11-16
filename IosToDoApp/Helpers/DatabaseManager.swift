@@ -53,18 +53,6 @@ class DatabaseManager {
         })
     }
     
-//    func updateTaskToDone(id: String, completion: @escaping (Result<Void, Error>) -> Void) {
-//        let fields: [String: Any] = ["isDone" : true, "dontAt" : Date()]
-//        tasksCollection.document(id).updateData(fields) { (error) in
-//            if let error = error {
-//                completion(.failure(error))
-//            } else {
-//                completion(.success(()))
-//            }
-//        }
-//    }
-    
-    
     func updateTaskStatus(isDone: Bool,  id: String, completion: @escaping (Result<Void, Error>) -> Void) {
         var fields: [String : Any] = [:]
         if isDone {
