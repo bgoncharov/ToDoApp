@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OngoingViewController: UITableViewController {
+class OngoingViewController: UITableViewController, Animatable {
     
     private let databasaManager = DatabaseManager()
     
@@ -41,7 +41,7 @@ class OngoingViewController: UITableViewController {
             switch result {
             
             case .success():
-                print("successfulle")
+                self.showInfoToast(text: "Moved to Done", location: .top, duration: 2.0)
             case .failure(let error):
                 print(error.localizedDescription)
             }
