@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DoneTaskTableViewCotroller: UITableViewController {
+class DoneTaskTableViewCotroller: UITableViewController, Animatable {
     
     private let databasaManager = DatabaseManager()
     
@@ -35,6 +35,21 @@ class DoneTaskTableViewCotroller: UITableViewController {
             }
         }
     }
+    
+    private func handleActionButton(for task: Task) {
+        guard let id = task.id else { return }
+        
+        databasaManager.updateTaskStatus(isDone: false, id: id) { [weak self] (result) in
+            switch result {
+            
+            case .success():
+                self?.showToast(state: .info, text: "Moved to Outgoing")
+            case .failure(let error):
+                self?.showToast(state: .info, text: error.localizedDescription)
+            }
+        }
+    }
+    
 }
 
 
@@ -48,6 +63,9 @@ extension DoneTaskTableViewCotroller {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellid", for: indexPath) as! DoneTaskTableViewCell
         let task = tasks[indexPath.row]
         cell.configure(with: task)
+        cell.actionButtonDidTap = {
+            self.handleActionButton(for: task)
+        }
         return cell
     }
     

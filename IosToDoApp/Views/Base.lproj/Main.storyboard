@@ -33,6 +33,9 @@
                                                         <constraint firstAttribute="width" constant="24" id="zlJ-4l-wxS"/>
                                                     </constraints>
                                                     <state key="normal" image="checkmark" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="actionButtonTapped:" destination="cgb-qX-apb" eventType="touchUpInside" id="ZnI-Mx-iKF"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some random task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGa-Gc-a52">
                                                     <rect key="frame" x="40" y="0.0" width="342" height="94"/>
