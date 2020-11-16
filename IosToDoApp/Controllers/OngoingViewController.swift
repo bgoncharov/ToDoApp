@@ -41,9 +41,9 @@ class OngoingViewController: UITableViewController, Animatable {
             switch result {
             
             case .success():
-                self.showInfoToast(text: "Moved to Done", location: .top, duration: 2.0)
+                self.showToast(state: .info, text: "Moved to Done")
             case .failure(let error):
-                print(error.localizedDescription)
+                self.showToast(state: .info, text: error.localizedDescription)
             }
         }
     }
