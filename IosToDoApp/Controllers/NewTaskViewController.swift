@@ -21,6 +21,14 @@ class NewTaskViewController: UIViewController {
     
     weak var delegate: TaskVCDelegate?
     
+    
+    private lazy var calendar: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .yellow
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,6 +72,16 @@ class NewTaskViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    private func showCalendar() {
+        view.addSubview(calendar)
+        NSLayoutConstraint.activate([
+            calendar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            calendar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            calendar.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            calendar.heightAnchor.constraint(equalToConstant: 200),
+        ])
+    }
+    
     @objc func keyboardWillShow(_ notification: Notification) {
         let keyboardHeight = getKeyboardHeight(notification: notification)
         
@@ -89,6 +107,8 @@ class NewTaskViewController: UIViewController {
     }
     
     @IBAction private func calendarButtonTapped(_ sender: Any) {
+        taskTextField.resignFirstResponder()
+        showCalendar()
     }
     
     @IBAction private func saveButtonTapped(_ sender: Any) {
