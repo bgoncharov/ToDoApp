@@ -14,16 +14,21 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var taskTextField: UITextField!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var containerViewBottomConsraint: NSLayoutConstraint!
-    @IBOutlet weak var saveButton: UIButton! 
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var deadlineLabel: UILabel!
     
     private var subscribers = Set<AnyCancellable>()
+    
+    
     @Published private var taskString: String!
+    @Published private var deadline: Date?
     
     weak var delegate: TaskVCDelegate?
     
     
     private lazy var calendar: UIView = {
         let view = CalendarView()
+        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -53,6 +58,10 @@ class NewTaskViewController: UIViewController {
         $taskString.sink { [unowned self] (text) in
             self.saveButton.isEnabled = text?.isEmpty == false
         }.store(in: &subscribers)
+        
+        $deadline.sink { (date) in
+            self.deadlineLabel.text = date?.toString() ?? ""
+        }.store(in: &subscribers)
     }
     
     private func setupViews() {
@@ -79,6 +88,11 @@ class NewTaskViewController: UIViewController {
             calendar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             calendar.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    private func dismissCalendarView(completion: () -> Void) {
+        calendar.removeFromSuperview()
+        completion()
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -123,9 +137,28 @@ extension NewTaskViewController: UIGestureRecognizerDelegate {
 
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if calendar.isDescendant(of: view) {
+            if touch.view?.isDescendant(of: calendar) == false {
+                dismissCalendarView { [unowned self] in
+                    self.taskTextField.becomeFirstResponder()
+                }
+            }
             return false
         }
         return true
     }
     
+}
+
+extension NewTaskViewController: CalendarViewDelegate {
+    
+    func calendarViewDidSelectDate(date: Date) {
+        dismissCalendarView {
+            self.taskTextField.becomeFirstResponder()
+            self.deadline = date
+        }
+    }
+    
+    func calendarViewDidTappedRemoveButton() {
+        
+    }
 }

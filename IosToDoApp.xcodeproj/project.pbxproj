@@ -24,6 +24,8 @@
 		A168A16D2558F46E0036A72E /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A16C2558F46E0036A72E /* MenuSection.swift */; };
 		A168A1742558FA5D0036A72E /* DoneTaskTableViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A1732558FA5D0036A72E /* DoneTaskTableViewCotroller.swift */; };
 		A168A1772558FA930036A72E /* OngoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A1762558FA930036A72E /* OngoingViewController.swift */; };
+		A193536F25648D960011F0CC /* CalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A193536E25648D950011F0CC /* CalendarViewDelegate.swift */; };
+		A193537325648F0E0011F0CC /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A193537225648F0E0011F0CC /* Extension+Date.swift */; };
 		A19D4CB8255E073D008550D3 /* TaskVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CB7255E073D008550D3 /* TaskVCDelegate.swift */; };
 		A19D4CBB255E0E62008550D3 /* OngoingTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CBA255E0E62008550D3 /* OngoingTaskTableViewCell.swift */; };
 		A1A57EA02559C4D3002D1F63 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A57E9F2559C4D3002D1F63 /* NewTaskViewController.swift */; };
@@ -50,6 +52,8 @@
 		A168A16C2558F46E0036A72E /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
 		A168A1732558FA5D0036A72E /* DoneTaskTableViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskTableViewCotroller.swift; sourceTree = "<group>"; };
 		A168A1762558FA930036A72E /* OngoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingViewController.swift; sourceTree = "<group>"; };
+		A193536E25648D950011F0CC /* CalendarViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewDelegate.swift; sourceTree = "<group>"; };
+		A193537225648F0E0011F0CC /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		A19D4CB7255E073D008550D3 /* TaskVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskVCDelegate.swift; sourceTree = "<group>"; };
 		A19D4CBA255E0E62008550D3 /* OngoingTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTaskTableViewCell.swift; sourceTree = "<group>"; };
 		A1A57E9F2559C4D3002D1F63 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 			children = (
 				A168A13C2558EFFD0036A72E /* AppDelegate.swift */,
 				A168A13E2558EFFD0036A72E /* SceneDelegate.swift */,
+				A193537125648EFA0011F0CC /* Extensions */,
 				A19D4CB6255E071B008550D3 /* Protcols */,
 				A11A1A84255B9D0C0022FE6B /* Helpers */,
 				A168A16B2558F4600036A72E /* Models */,
@@ -152,11 +157,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		A193537125648EFA0011F0CC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A193537225648F0E0011F0CC /* Extension+Date.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A19D4CB6255E071B008550D3 /* Protcols */ = {
 			isa = PBXGroup;
 			children = (
 				A19D4CB7255E073D008550D3 /* TaskVCDelegate.swift */,
 				A129B3F5256338E800AA6EBE /* Animatable.swift */,
+				A193536E25648D950011F0CC /* CalendarViewDelegate.swift */,
 			);
 			path = Protcols;
 			sourceTree = "<group>";
@@ -289,7 +303,9 @@
 				A19D4CBB255E0E62008550D3 /* OngoingTaskTableViewCell.swift in Sources */,
 				A19D4CB8255E073D008550D3 /* TaskVCDelegate.swift in Sources */,
 				A11A1A82255B9C630022FE6B /* Task.swift in Sources */,
+				A193536F25648D960011F0CC /* CalendarViewDelegate.swift in Sources */,
 				A168A1772558FA930036A72E /* OngoingViewController.swift in Sources */,
+				A193537325648F0E0011F0CC /* Extension+Date.swift in Sources */,
 				A1A57EA02559C4D3002D1F63 /* NewTaskViewController.swift in Sources */,
 				A168A1412558EFFD0036A72E /* TasksViewController.swift in Sources */,
 				A168A13D2558EFFD0036A72E /* AppDelegate.swift in Sources */,
