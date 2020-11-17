@@ -65,7 +65,10 @@ class CalendarView: UIView {
     }
     
     @objc func removeButtonTapped(_ sender: UIButton) {
-        delegate?.calendarViewDidTappedRemoveButton()
+        if let selectedDate = calendar.selectedDate {
+            calendar.deselect(selectedDate)
+            delegate?.calendarViewDidTappedRemoveButton()
+        }
     }
     
     required init?(coder: NSCoder) {

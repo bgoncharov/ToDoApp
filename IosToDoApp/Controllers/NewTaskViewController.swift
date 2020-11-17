@@ -159,6 +159,9 @@ extension NewTaskViewController: CalendarViewDelegate {
     }
     
     func calendarViewDidTappedRemoveButton() {
-        
+        dismissCalendarView {
+            self.taskTextField.becomeFirstResponder()
+            self.deadline = nil
+        }
     }
 }
