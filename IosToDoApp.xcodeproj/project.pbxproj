@@ -13,6 +13,7 @@
 		A11A1A86255B9D2F0022FE6B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11A1A85255B9D2F0022FE6B /* DatabaseManager.swift */; };
 		A129B3F3256332CB00AA6EBE /* DoneTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129B3F2256332CB00AA6EBE /* DoneTaskTableViewCell.swift */; };
 		A129B3F6256338E800AA6EBE /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129B3F5256338E800AA6EBE /* Animatable.swift */; };
+		A129B3F925637F0F00AA6EBE /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129B3F825637F0F00AA6EBE /* CalendarView.swift */; };
 		A168A13D2558EFFD0036A72E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A13C2558EFFD0036A72E /* AppDelegate.swift */; };
 		A168A13F2558EFFD0036A72E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A13E2558EFFD0036A72E /* SceneDelegate.swift */; };
 		A168A1412558EFFD0036A72E /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A1402558EFFD0036A72E /* TasksViewController.swift */; };
@@ -36,6 +37,7 @@
 		A11A1A85255B9D2F0022FE6B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		A129B3F2256332CB00AA6EBE /* DoneTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskTableViewCell.swift; sourceTree = "<group>"; };
 		A129B3F5256338E800AA6EBE /* Animatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
+		A129B3F825637F0F00AA6EBE /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		A168A1392558EFFD0036A72E /* IosToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IosToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A168A13C2558EFFD0036A72E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A168A13E2558EFFD0036A72E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,7 +46,7 @@
 		A168A1452558EFFD0036A72E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A168A1482558EFFD0036A72E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A168A14A2558EFFE0036A72E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A168A1512558F0FC0036A72E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		A168A1512558F0FC0036A72E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A168A16C2558F46E0036A72E /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
 		A168A1732558FA5D0036A72E /* DoneTaskTableViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskTableViewCotroller.swift; sourceTree = "<group>"; };
 		A168A1762558FA930036A72E /* OngoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				A168A1422558EFFD0036A72E /* Main.storyboard */,
 				A19D4CBA255E0E62008550D3 /* OngoingTaskTableViewCell.swift */,
 				A129B3F2256332CB00AA6EBE /* DoneTaskTableViewCell.swift */,
+				A129B3F825637F0F00AA6EBE /* CalendarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				A129B3F6256338E800AA6EBE /* Animatable.swift in Sources */,
 				A129B3F3256332CB00AA6EBE /* DoneTaskTableViewCell.swift in Sources */,
 				A11A1A86255B9D2F0022FE6B /* DatabaseManager.swift in Sources */,
+				A129B3F925637F0F00AA6EBE /* CalendarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
