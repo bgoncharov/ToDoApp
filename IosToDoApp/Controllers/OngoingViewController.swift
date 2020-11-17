@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol OngoingTasksTVCDelegate: class {
+    func showOptions(for task: Task)
+}
+
 class OngoingViewController: UITableViewController, Animatable {
     
     private let databasaManager = DatabaseManager()
@@ -16,6 +20,8 @@ class OngoingViewController: UITableViewController, Animatable {
             tableView.reloadData()
         }
     }
+    
+    weak var delegate: OngoingTasksTVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +71,12 @@ extension OngoingViewController {
             self?.handleActionButton(for: task)
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let task = tasks[indexPath.item]
+        delegate?.showOptions(for: task  )
     }
 
 }

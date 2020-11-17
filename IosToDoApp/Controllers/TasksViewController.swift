@@ -56,11 +56,41 @@ class TasksViewController: UIViewController, Animatable {
         if segue.identifier == "showNewTask",
            let destination = segue.destination as? NewTaskViewController {
             destination.delegate = self
+        } else if segue.identifier == "showOngoingTaks" {
+            let destination = segue.destination as? OngoingViewController
+            destination?.delegate = self
+        }
+    }
+    
+    private func deleteTask(id: String) {
+        databaseManager.deleteTask(id: id) { [weak self] (result) in
+            switch result {
+            
+            case .success():
+                self?.showToast(state: .success, text: "Task succsessfully deleted")
+            case .failure(let error):
+                self?.showToast(state: .error, text: error.localizedDescription)
+            }
         }
     }
     
     @IBAction func addNewTaskTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "showNewTask", sender: nil)
+    }
+}
+
+extension TasksViewController: OngoingTasksTVCDelegate {
+    func showOptions(for task: Task) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [unowned self] _ in
+            guard let id = task.id else { return }
+            self.deleteTask(id: id)
+            print("delete task: \(task.title)")
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(deleteAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
 

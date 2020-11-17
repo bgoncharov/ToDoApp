@@ -30,6 +30,16 @@ class DatabaseManager {
         }
     }
     
+    func deleteTask(id: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        tasksCollection.document(id).delete { (error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
     func addListener(forDoneTasks isDone: Bool, completion: @escaping (Result<[Task], Error>) -> Void) {
         
         listener = tasksCollection
