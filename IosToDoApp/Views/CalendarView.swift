@@ -50,6 +50,16 @@ class CalendarView: UIView {
         setupView()
     }
     
+    // Hide removeButton if date not selected
+    
+    override func willMove(toWindow newWindow: UIWindow?) {
+        if calendar.selectedDate == nil {
+            removeButton.removeFromSuperview()
+        } else if removeButton.isDescendant(of: stack) == false {
+            stack.addArrangedSubview(removeButton)
+        }
+    }
+    
     private func setupView() {
         backgroundColor = .white
         addSubview(stack)

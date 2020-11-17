@@ -16,6 +16,11 @@ class OngoingTaskTableViewCell: UITableViewCell {
     
     func configure(task: Task) {
         self.titleLabel.text = task.title
+        self.deadlineLabel.text = task.deadline?.toRelativeString()
+        
+        if task.deadline?.isOverDue() == true {
+            deadlineLabel.textColor = .systemRed
+        }
     }
     
     @IBAction func actionButtonTapped(_ sender: UIButton) {
