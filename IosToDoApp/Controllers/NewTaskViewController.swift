@@ -62,6 +62,7 @@ class NewTaskViewController: UIViewController {
     
     private func setupGesture() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(dismisViewController))
+        gesture.delegate = self
         view.addGestureRecognizer(gesture)
     }
     
@@ -115,6 +116,16 @@ class NewTaskViewController: UIViewController {
         let task = Task(title: taskString)
         
         delegate?.didAddTask(task)
+    }
+}
+
+extension NewTaskViewController: UIGestureRecognizerDelegate {
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if calendar.isDescendant(of: view) {
+            return false
+        }
+        return true
     }
     
 }
