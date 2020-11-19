@@ -59,6 +59,11 @@ class TasksViewController: UIViewController, Animatable {
         } else if segue.identifier == "showOngoingTaks" {
             let destination = segue.destination as? OngoingViewController
             destination?.delegate = self
+        } else if segue.identifier == "showEditTask",
+                  let destination = segue.destination as? NewTaskViewController,
+                  let taskToEdit = sender as? Task {
+            destination.delegate = self
+            destination.taskToEdit = taskToEdit
         }
     }
     
@@ -72,6 +77,10 @@ class TasksViewController: UIViewController, Animatable {
                 self?.showToast(state: .error, text: error.localizedDescription)
             }
         }
+    }
+    
+    private func editTask(task: Task) {
+        performSegue(withIdentifier: "showEditTask", sender: task)
     }
     
     @IBAction func addNewTaskTapped(_ sender: UIButton) {
@@ -88,13 +97,33 @@ extension TasksViewController: OngoingTasksTVCDelegate {
             self.deleteTask(id: id)
             print("delete task: \(task.title)")
         }
+        let editAction = UIAlertAction(title: "Edit", style: .default) { [unowned self] _ in
+            self.editTask(task: task)
+        }
         alertController.addAction(cancelAction)
         alertController.addAction(deleteAction)
+        alertController.addAction(editAction)
         present(alertController, animated: true, completion: nil)
     }
 }
 
-extension TasksViewController: TaskVCDelegate {
+extension TasksViewController: NewTaskVCDelegate {
+    func didEditTask(_ task: Task) {
+        
+        presentedViewController?.dismiss(animated: true, completion: {
+            guard let id = task.id else { return }
+            self.databaseManager.editTask(id: id, title: task.title, deadline: task.deadline) { (result) in
+                switch result {
+                
+                case .success():
+                    self.showToast(state: .info, text: "Task successfully edited")
+                case .failure(let error):
+                    self.showToast(state: .error, text: error.localizedDescription)
+                }
+            }
+        })
+    }
+    
     func didAddTask(_ task: Task) {
         
         presentedViewController?.dismiss(animated: true, completion: { [unowned self] in
@@ -104,7 +133,7 @@ extension TasksViewController: TaskVCDelegate {
                 case .success():
                     self.showToast(state: .success, text: "New task added")
                 case .failure(let error):
-                    self.showToast(state: .success, text: error.localizedDescription)
+                    self.showToast(state: .error, text: error.localizedDescription)
                 }
             }
         })

@@ -18,15 +18,14 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var deadlineLabel: UILabel!
     
     private var subscribers = Set<AnyCancellable>()
-    
+    var taskToEdit: Task?
     
     @Published private var taskString: String!
     @Published private var deadline: Date?
     
-    weak var delegate: TaskVCDelegate?
+    weak var delegate: NewTaskVCDelegate?
     
-    
-    private lazy var calendar: UIView = {
+    private lazy var calendar: CalendarView = {
         let view = CalendarView()
         view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -67,6 +66,15 @@ class NewTaskViewController: UIViewController {
     private func setupViews() {
         backgroundView.backgroundColor = UIColor.init(white: 0.3, alpha: 0.4)
         containerViewBottomConsraint.constant = -containerView.frame.height
+        
+        if let taskToEdit = self.taskToEdit {
+            taskTextField.text = taskToEdit.title
+            taskString = taskToEdit.title
+            deadline = taskToEdit.deadline
+            saveButton.setTitle("Update", for: .normal)
+            guard let deadline = taskToEdit.deadline else { return }
+            calendar.selectDate(date: deadline)
+        }
     }
     
     private func setupGesture() {
@@ -127,9 +135,18 @@ class NewTaskViewController: UIViewController {
     @IBAction private func saveButtonTapped(_ sender: Any) {
         
         guard let taskString = self.taskString else { return }
-        let task = Task(title: taskString, deadline: deadline)
+        var task = Task(title: taskString, deadline: deadline)
         
-        delegate?.didAddTask(task)
+        if let id = taskToEdit?.id {
+            task.id = id
+        }
+        
+        if taskToEdit == nil {
+            delegate?.didAddTask(task)
+        } else {
+            delegate?.didEditTask(task)
+        }
+
     }
 }
 
