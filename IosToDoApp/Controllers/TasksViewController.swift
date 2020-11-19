@@ -112,13 +112,13 @@ extension TasksViewController: NewTaskVCDelegate {
         
         presentedViewController?.dismiss(animated: true, completion: {
             guard let id = task.id else { return }
-            self.databaseManager.editTask(id: id, title: task.title, deadline: task.deadline) { (result) in
+            self.databaseManager.editTask(id: id, title: task.title, deadline: task.deadline) { [weak self] (result) in
                 switch result {
                 
                 case .success():
-                    self.showToast(state: .info, text: "Task successfully edited")
+                    self?.showToast(state: .success, text: "Task updated successfully")
                 case .failure(let error):
-                    self.showToast(state: .error, text: error.localizedDescription)
+                    self?.showToast(state: .error, text: error.localizedDescription)
                 }
             }
         })
@@ -127,13 +127,12 @@ extension TasksViewController: NewTaskVCDelegate {
     func didAddTask(_ task: Task) {
         
         presentedViewController?.dismiss(animated: true, completion: { [unowned self] in
-            self.databaseManager.addTask(task) {  (result) in
+            self.databaseManager.addTask(task) { [weak self] (result) in
                 switch result {
                 
-                case .success():
-                    self.showToast(state: .success, text: "New task added")
+                case .success(): break
                 case .failure(let error):
-                    self.showToast(state: .error, text: error.localizedDescription)
+                    self?.showToast(state: .error, text: error.localizedDescription)
                 }
             }
         })
