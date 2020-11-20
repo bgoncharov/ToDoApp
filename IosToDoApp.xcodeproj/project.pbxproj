@@ -25,6 +25,7 @@
 		A168A1742558FA5D0036A72E /* DoneTaskTableViewCotroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A1732558FA5D0036A72E /* DoneTaskTableViewCotroller.swift */; };
 		A168A1772558FA930036A72E /* OngoingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A168A1762558FA930036A72E /* OngoingViewController.swift */; };
 		A16D2DAE2567662F00716A93 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D2DAD2567662F00716A93 /* NavigationManager.swift */; };
+		A16D2DB22567830100716A93 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D2DB12567830100716A93 /* AuthManager.swift */; };
 		A193536F25648D960011F0CC /* CalendarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A193536E25648D950011F0CC /* CalendarViewDelegate.swift */; };
 		A193537325648F0E0011F0CC /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = A193537225648F0E0011F0CC /* Extension+Date.swift */; };
 		A19D4CB8255E073D008550D3 /* NewTaskVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D4CB7255E073D008550D3 /* NewTaskVCDelegate.swift */; };
@@ -57,6 +58,7 @@
 		A168A1732558FA5D0036A72E /* DoneTaskTableViewCotroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTaskTableViewCotroller.swift; sourceTree = "<group>"; };
 		A168A1762558FA930036A72E /* OngoingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingViewController.swift; sourceTree = "<group>"; };
 		A16D2DAD2567662F00716A93 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		A16D2DB12567830100716A93 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		A193536E25648D950011F0CC /* CalendarViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewDelegate.swift; sourceTree = "<group>"; };
 		A193537225648F0E0011F0CC /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		A19D4CB7255E073D008550D3 /* NewTaskVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskVCDelegate.swift; sourceTree = "<group>"; };
@@ -88,13 +90,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A11A1A84255B9D0C0022FE6B /* Helpers */ = {
+		A11A1A84255B9D0C0022FE6B /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				A11A1A85255B9D2F0022FE6B /* DatabaseManager.swift */,
 				A16D2DAD2567662F00716A93 /* NavigationManager.swift */,
+				A16D2DB12567830100716A93 /* AuthManager.swift */,
 			);
-			path = Helpers;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		A168A1302558EFFD0036A72E = {
@@ -123,7 +126,7 @@
 				A168A13E2558EFFD0036A72E /* SceneDelegate.swift */,
 				A193537125648EFA0011F0CC /* Extensions */,
 				A19D4CB6255E071B008550D3 /* Protcols */,
-				A11A1A84255B9D0C0022FE6B /* Helpers */,
+				A11A1A84255B9D0C0022FE6B /* Services */,
 				A168A16B2558F4600036A72E /* Models */,
 				A168A1702558F4BB0036A72E /* Controllers */,
 				A168A1792558FE340036A72E /* Views */,
@@ -313,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1FE426325664D8400FF4912 /* LoginViewController.swift in Sources */,
+				A16D2DB22567830100716A93 /* AuthManager.swift in Sources */,
 				A19D4CBB255E0E62008550D3 /* OngoingTaskTableViewCell.swift in Sources */,
 				A19D4CB8255E073D008550D3 /* NewTaskVCDelegate.swift in Sources */,
 				A11A1A82255B9C630022FE6B /* Task.swift in Sources */,

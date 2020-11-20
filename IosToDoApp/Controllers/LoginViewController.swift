@@ -7,15 +7,32 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, Animatable {
     
     weak var delegate: LoginVCDelegate?
+    
+    private let authManager = AuthManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    private let email = "boris@email.com"
+    private let password = "1234567"
+    
     @IBAction func loginWithBorisButton(_ semder: UIButton) {
-        delegate?.didLogin()
+        
+        authManager.login(withEmail: email, password: password) { [weak self] (result) in
+            switch result {
+            
+            case .success():
+                self?.delegate?.didLogin()
+            case .failure(let error):
+                self?.showToast(state: .error, text: error.localizedDescription, duration: 3.0)
+            }
+        }
+        
+        
+        
     }
 }
