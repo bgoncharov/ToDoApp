@@ -17,12 +17,14 @@ class LoginViewController: UIViewController, Animatable {
         super.viewDidLoad()
     }
     
-    private let email = "boris@email.com"
-    private let password = "1234567"
-    
     @IBAction func loginWithBorisButton(_ semder: UIButton) {
+        showLoadingAnimation()
+        
+        let email = "boris@email.com"
+        let password = "1234567"
         
         authManager.login(withEmail: email, password: password) { [weak self] (result) in
+            self?.hideLoadingAnimation()
             switch result {
             
             case .success():
