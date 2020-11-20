@@ -31,4 +31,8 @@ class AuthManager {
             completion(.failure(error))
         }
     }
+    
+    func isUserLogedIn() -> Bool {
+        return auth.currentUser != nil
+    }
 }
