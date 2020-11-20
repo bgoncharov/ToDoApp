@@ -40,6 +40,17 @@ class TasksViewController: UIViewController, Animatable {
         }
     }
     
+    @IBAction func menuButtonTapped(_ sender: UIButton) {
+        let allertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let logoutAction = UIAlertAction(title: "Logout", style: .default) { _ in
+            print("Logout here")
+        }
+        allertController.addAction(cancelAction)
+        allertController.addAction(logoutAction)
+        present(allertController, animated: true, completion: nil)
+    }
+    
     private func segmentsSwitcher(for section: MenuSection) {
         switch section {
         

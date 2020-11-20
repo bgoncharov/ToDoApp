@@ -284,8 +284,23 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Di5-zt-FOH">
                                 <rect key="frame" x="0.0" y="808" width="414" height="88"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bf1-Cs-Uyn">
+                                        <rect key="frame" x="374" y="16" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="ZzP-yD-tLC"/>
+                                            <constraint firstAttribute="width" constant="24" id="vgd-cc-apW"/>
+                                        </constraints>
+                                        <state key="normal" image="line.horizontal.3" catalog="system"/>
+                                        <connections>
+                                            <action selector="menuButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yqG-pr-Fkd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bf1-Cs-Uyn" secondAttribute="trailing" constant="16" id="PTL-gu-lKl"/>
+                                    <constraint firstItem="bf1-Cs-Uyn" firstAttribute="top" secondItem="Di5-zt-FOH" secondAttribute="top" constant="16" id="Vas-rt-GBf"/>
                                     <constraint firstAttribute="height" constant="88" id="pVo-gI-iXU"/>
                                 </constraints>
                             </view>
@@ -493,6 +508,7 @@
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="imSplash" width="2000" height="2000"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
