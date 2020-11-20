@@ -14,6 +14,8 @@ class TasksViewController: UIViewController, Animatable {
     @IBOutlet weak var outgoingTasksContainerView: UIView!
     
     private let databaseManager = DatabaseManager()
+    private let authManager = AuthManager()
+    private let navigationManager = NavigationManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +42,23 @@ class TasksViewController: UIViewController, Animatable {
         }
     }
     
+    private func logoutUser() {
+        authManager.logout { [unowned self] (result) in
+            switch result {
+            
+            case .success():
+                navigationManager.show(scene: .onboarding)
+            case .failure(let error):
+                self.showToast(state: .error, text: error.localizedDescription, duration: 3.0)
+            }
+        }
+    }
+    
     @IBAction func menuButtonTapped(_ sender: UIButton) {
         let allertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let logoutAction = UIAlertAction(title: "Logout", style: .default) { _ in
-            print("Logout here")
+        let logoutAction = UIAlertAction(title: "Logout", style: .default) { [unowned self] _ in
+            self.logoutUser()
         }
         allertController.addAction(cancelAction)
         allertController.addAction(logoutAction)

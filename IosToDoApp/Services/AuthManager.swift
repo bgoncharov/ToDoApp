@@ -22,4 +22,13 @@ class AuthManager {
             }
         }
     }
+    
+    func logout(completion: (Result<Void, Error>) -> Void) {
+        do {
+            try auth.signOut()
+            completion(.success(()))
+        } catch (let error) {
+            completion(.failure(error))
+        }
+    }
 }
