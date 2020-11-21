@@ -4,11 +4,11 @@
 
 <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/1.jpg" width="200">        <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/2.jpg" width="200">   <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/3.jpg" width="200">   <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/4.jpg" width="200">   <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/5.jpg" width="200">        <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/6.jpg" width="200">   <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/7.jpg" width="200">   <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/8.jpg" width="200">
 
-This tasks applications made with `Swift`, `UIKit`, `Combine`, and `Firebase`. Also I used open sorce libraries: [MBProgressHUD](https://github.com/jdg/MBProgressHUD), [Loaf](https://github.com/schmidyy/Loaf), and [FSCalendar](https://github.com/WenchaoD/FSCalendar). There are two screens with Outgoing and Done tasks. You can move tasks from Done to Outgoing, delete and edit tasks. User doen't have to log in every time when lauch the app. 
+This tasks application made with `Swift`, using `UIKit`, `Combine`, and `Firebase`. Also I used some open sorce libraries: [MBProgressHUD](https://github.com/jdg/MBProgressHUD), [Loaf](https://github.com/schmidyy/Loaf), and [FSCalendar](https://github.com/WenchaoD/FSCalendar). There are two main screens with Outgoing and Done tasks. User can move tasks from Done to Outgoing, delete and edit tasks. User doen't have to log in every time when launch the application. 
 
 **Combine framework**
 
-Combine is Apple's shiny reactive framework that provides a declarative Swift API for processing values over time. For example I used it to observe the New Task Form: if form is not empty `save button` becomes active, and if user set a deadline for the task it appears at the form as well.
+Combine is Apple's shiny reactive framework that provides a declarative Swift API for processing values over time. For example I used it to observe the `New Task Form`: if form is not empty `save button` becomes active, and if user set a deadline for the task it appears at the form as well.
 
 ```swift
     private func observeForm() {
@@ -29,7 +29,7 @@ Combine is Apple's shiny reactive framework that provides a declarative Swift AP
     }
 ```
 
-Also I used Combine on the `Login screen` to update error message and check if user succsessfully loged in and transfer to main screen of the app.
+Also I used Combine on the `Login screen` to update error message and check if user succsessfully loged in and transfer to main screen of the application.
 
 ```swift
 private func observeForm() {
@@ -47,7 +47,7 @@ private func observeForm() {
 
 **Animation**
 
-I created [protocol](https://github.com/bgoncharov/ToDoApp/blob/main/IosToDoApp/Protcols/Animatable.swift) called `Animatable` where implented animation functions for user notifications and progress indicator. For notifications I use Loaf:
+I created [protocol](https://github.com/bgoncharov/ToDoApp/blob/main/IosToDoApp/Protcols/Animatable.swift) called `Animatable` with implementation of animation functions for user notifications and progress indicator. For notifications I use `Loaf`:
 
 ```swift
 func showToast(state: Loaf.State, text: String, location: Loaf.Location = .top, duration: TimeInterval = 2.0) {
@@ -62,7 +62,7 @@ func showToast(state: Loaf.State, text: String, location: Loaf.Location = .top, 
     }
 ```
 
-For progress indicator - MBProgressHUD:
+For progress indicator - `MBProgressHUD`:
 
 ```swift
 func showLoadingAnimation() {
