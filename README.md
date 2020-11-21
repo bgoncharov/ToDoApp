@@ -4,7 +4,7 @@
 
 <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/1.jpg" width="200">        <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/2.jpg" width="200">   <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/3.jpg" width="200">   <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/4.jpg" width="200">   <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/5.jpg" width="200">        <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/6.jpg" width="200">   <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/7.jpg" width="200">   <img src="https://github.com/bgoncharov/ToDoApp/blob/main/img/8.jpg" width="200">
 
-This tasks application made with `Swift`, using `UIKit`, `Combine`, and `Firebase`. Also I used some open sorce libraries: [MBProgressHUD](https://github.com/jdg/MBProgressHUD), [Loaf](https://github.com/schmidyy/Loaf), and [FSCalendar](https://github.com/WenchaoD/FSCalendar). There are two main screens with Outgoing and Done tasks. User can move tasks from Done to Outgoing, delete and edit tasks. User doen't have to log in every time when launch the application. 
+This tasks application made with `Swift`, using `UIKit`, `Combine`, and `Firebase`. Also I used some open sorce libraries: [MBProgressHUD](https://github.com/jdg/MBProgressHUD), [Loaf](https://github.com/schmidyy/Loaf), and [FSCalendar](https://github.com/WenchaoD/FSCalendar). There are two main screens with `Outgoing` and `Done` tasks. User can move tasks from Done to Outgoing, delete and edit tasks. User doen't have to log in every time when launch the application. 
 
 **Combine framework**
 
