@@ -47,7 +47,7 @@ private func observeForm() {
 
 **Animation**
 
-I created [protocol](https://github.com/bgoncharov/ToDoApp/blob/main/IosToDoApp/Protcols/Animatable.swift) called `Animatable` with implementation of animation functions for user notifications and progress indicator. For notifications I use `Loaf`:
+I created [protocol](https://github.com/bgoncharov/ToDoApp/blob/main/IosToDoApp/Protcols/Animatable.swift) called `Animatable` with implementation of animation functions for toasts and progress indicator. For toasts I use `Loaf`:
 
 ```swift
 func showToast(state: Loaf.State, text: String, location: Loaf.Location = .top, duration: TimeInterval = 2.0) {
