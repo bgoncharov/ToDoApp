@@ -50,9 +50,10 @@ class OngoingViewController: UITableViewController, Animatable {
             switch result {
             
             case .success():
-                self?.showToast(state: .info, text: "Moved to Done")
+                    self?.showToast(state: .info, text: "Moved to Done")
             case .failure(let error):
-                self?.showToast(state: .info, text: error.localizedDescription)
+
+                    self?.showToast(state: .info, text: error.localizedDescription)
             }
         }
     }

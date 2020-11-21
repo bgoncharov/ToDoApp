@@ -21,6 +21,8 @@ class OngoingTaskTableViewCell: UITableViewCell {
         if task.deadline?.isOverDue() == true {
             deadlineLabel.textColor = .red
             deadlineLabel.font = UIFont(name: "AvenirNext-Medium", size: 12)
+        } else {
+            deadlineLabel.textColor = .lightGray
         }
     }
     
