@@ -10,6 +10,7 @@ import UIKit
 class DoneTaskTableViewCotroller: UITableViewController, Animatable {
     
     private let databasaManager = DatabaseManager()
+    private let authManager = AuthManager()
     
     private var tasks: [Task] = [] {
         didSet {
@@ -25,7 +26,8 @@ class DoneTaskTableViewCotroller: UITableViewController, Animatable {
     
     
     private func listenToTasks() {
-        databasaManager.addListener(forDoneTasks: true) { [weak self] (result) in
+        guard let uid = authManager.getUserID() else { return }
+        databasaManager.addListener(forDoneTasks: true, uid: uid) { [weak self] (result) in
             switch result {
             
             case .success(let tasks):

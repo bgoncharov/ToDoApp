@@ -14,6 +14,7 @@ protocol OngoingTasksTVCDelegate: class {
 class OngoingViewController: UITableViewController, Animatable {
     
     private let databasaManager = DatabaseManager()
+    private let authManager = AuthManager()
     
     private var tasks: [Task] = [] {
         didSet {
@@ -30,7 +31,8 @@ class OngoingViewController: UITableViewController, Animatable {
     
     
     private func listenToTasks() {
-        databasaManager.addListener(forDoneTasks: false) { [weak self] (result) in
+        guard let uid = authManager.getUserID() else { return }
+        databasaManager.addListener(forDoneTasks: false, uid: uid) { [weak self] (result) in
             switch result {
             
             case .success(let tasks):

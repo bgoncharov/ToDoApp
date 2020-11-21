@@ -35,4 +35,8 @@ class AuthManager {
     func isUserLogedIn() -> Bool {
         return auth.currentUser != nil
     }
+    
+    func getUserID() -> String? {
+        return auth.currentUser?.uid
+    }
 }
