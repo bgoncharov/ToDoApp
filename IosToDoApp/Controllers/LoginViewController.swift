@@ -28,6 +28,11 @@ class LoginViewController: UIViewController, Animatable {
         observeForm()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        emailTextField.becomeFirstResponder()
+    }
+    
     private func observeForm() {
         $errorString.sink { [unowned self] (errorMessage) in
             self.errorLabel.text = errorMessage
@@ -42,12 +47,19 @@ class LoginViewController: UIViewController, Animatable {
     
     @IBAction func loginButton(_ semder: UIButton) {
         
-        guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+        guard let email = emailTextField.text,
+              !email.isEmpty,
+              let password = passwordTextField.text,
+              !password.isEmpty else {
             errorString = "Incomplete form"
             return
         }
         
+        errorString = ""
+        showLoadingAnimation()
+        
         authManager.login(withEmail: email, password: password) { [weak self] (result) in
+            self?.hideLoadingAnimation()
             switch result {
             
             case .success():
@@ -60,20 +72,26 @@ class LoginViewController: UIViewController, Animatable {
     
     @IBAction func signUpButton(_ semder: UIButton) {
         
-//        showLoadingAnimation()
-//
-//        let email = "kitcha@email.com"
-//        let password = "1234567"
-//
-//        authManager.login(withEmail: email, password: password) { [weak self] (result) in
-//            self?.hideLoadingAnimation()
-//            switch result {
-//
-//            case .success():
-//                self?.delegate?.didLogin()
-//            case .failure(let error):
-//                self?.showToast(state: .error, text: error.localizedDescription, duration: 3.0)
-//            }
-//        }
+        guard let email = emailTextField.text,
+              !email.isEmpty,
+              let password = passwordTextField.text,
+              !password.isEmpty else {
+            errorString = "Incomplete form"
+            return
+        }
+        
+        errorString = ""
+        showLoadingAnimation()
+        
+        authManager.signUp(email: email, password: password) { [weak self] (result) in
+            self?.hideLoadingAnimation()
+            switch result {
+            
+            case .success():
+                self?.isLoginSuccessfull = true
+            case .failure(let error):
+                self?.errorString = error.localizedDescription
+            }
+        }
     }
 }
