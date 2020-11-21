@@ -8,7 +8,7 @@ This tasks applications made with `Swift`, `UIKit`, `Combine`, and `Firebase`. A
 
 **Combine framework**
 
-Combine is Apple's shiny reactive framework that provides a declarative Swift API for processing values over time.For example I used it to observe the New Task Form: if form is not empte 'save button' becomes active, and if user set a deadline for the task it appears at the form.
+Combine is Apple's shiny reactive framework that provides a declarative Swift API for processing values over time. For example I used it to observe the New Task Form: if form is not empty `save button` becomes active, and if user set a deadline for the task it appears at the form as well.
 
 ```swift
     private func observeForm() {
@@ -29,7 +29,7 @@ Combine is Apple's shiny reactive framework that provides a declarative Swift AP
     }
 ```
 
-Also i used Combine on the Login screen to update error message and check if user succsessfully loged in and transfer to main screen of the app.
+Also I used Combine on the `Login screen` to update error message and check if user succsessfully loged in and transfer to main screen of the app.
 
 ```swift
 private func observeForm() {
@@ -44,5 +44,33 @@ private func observeForm() {
         }.store(in: &subscribers)
     }
 ```
-    
+
+**Animation**
+
+I created [protocol](https://github.com/bgoncharov/ToDoApp/blob/main/IosToDoApp/Protcols/Animatable.swift) called `Animatable` where implented animation functions for user notifications and progress indicator. For notifications I use Loaf:
+
+```swift
+func showToast(state: Loaf.State, text: String, location: Loaf.Location = .top, duration: TimeInterval = 2.0) {
+        DispatchQueue.main.async {
+            Loaf(text,
+                 state: state,
+                 location: location,
+                 presentingDirection: .vertical,
+                 dismissingDirection: .vertical,
+                 sender: self).show(.custom(duration))
+        }
+    }
+```
+
+For progress indicator - MBProgressHUD:
+
+```swift
+func showLoadingAnimation() {
+        
+        DispatchQueue.main.async {
+            let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud.backgroundColor = UIColor.init(white: 0.5, alpha: 0.3)
+        }
+    }
+```
    
